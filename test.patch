@@ -1,0 +1,44 @@
+--- lsof_4.88-rh/tests/TestDB~	2014-10-13 18:26:59.000000000 -0400
++++ lsof_4.88-rh/tests/TestDB	2015-06-06 10:26:36.035135955 -0400
+@@ -137,3 +137,4 @@
+ LT_BIGF LT_CC LT_DIAL_uw LT_KMEM LT_VERS=70101
+ LT_BIGF LT_CC LT_DIAL_uw LT_KMEM LT_VERS=70103
+ LT_BIGF LT_CC LT_DIAL_uw LT_KMEM LT_VERS=70104
++LT_BIGF LT_CC LT_DIAL_linux LT_VERS=319005 _FILE_OFFSET_BITS=64
+--- lsof_4.88-rh/tests/CkTestDB~	2010-02-12 15:37:05.000000000 -0500
++++ lsof_4.88-rh/tests/CkTestDB	2015-06-06 10:28:25.611766058 -0400
+@@ -65,7 +65,6 @@
+   echo ""
+   echo "     $new"
+   echo ""
+-  exit 1
+ fi
+ 
+ # Establish trap and stty handling.
+--- lsof_4.88-rh/tests/CkTestDB~	2015-06-06 10:28:25.000000000 -0400
++++ lsof_4.88-rh/tests/CkTestDB	2015-06-06 10:32:45.438517777 -0400
+@@ -112,24 +112,4 @@
+ .CAT_MARK
+ echo "    $new" > /dev/tty
+ END=0
+-while test $END = 0
+-do
+-  echo "" > /dev/tty
+-  echo $EO "Do you want to continue (y|n) [n]? $EC" > /dev/tty
+-  read ANS EXCESS
+-  if test "X$ANS" = "Xn" -o "X$ANS" = "XN"
+-  then
+-    exit 1
+-  fi
+-  if test "X$ANS" = "Xy" -o "X$ANS" = "XY"
+-  then
+-    exit 0
+-  else
+-    echo "Please answer y or n." > /dev/tty
+-  fi
+-done
+ 
+-# Should never get here!
+-
+-echo "$0: unexpected failure!"
+-exit 2

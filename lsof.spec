@@ -1,6 +1,6 @@
 Name:           lsof
 Version:        4.88
-Release:        7
+Release:        8
 License:        BSD-4-Clause
 Summary:        A utility which lists open files on a Linux/UNIX system
 URL:            http://people.freebsd.org/~abe/

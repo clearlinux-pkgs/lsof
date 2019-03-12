@@ -15,7 +15,7 @@ information about files that are open by the processes running on a
 UNIX system.
 
 %prep
-%setup -q -n %{name}_%{version}-rh
+%setup -q -n lsof_%{version}-rh
 chmod u+w tests/*
 %patch1 -p1
 
@@ -25,10 +25,10 @@ chmod u+w tests/*
 make %{?_smp_mflags}
 
 %install
-mkdir -p %{buildroot}%{_sbindir}
-mkdir -p %{buildroot}%{_mandir}/man8
-install -p -m 0755 lsof %{buildroot}%{_sbindir}
-install -p -m 0644 lsof.8 %{buildroot}%{_mandir}/man8
+mkdir -p %{buildroot}/usr/bin
+mkdir -p %{buildroot}/usr/share/man/man8
+install -p -m 0755 lsof %{buildroot}/usr/bin
+install -p -m 0644 lsof.8 %{buildroot}/usr/share/man/man8
 
 %check
 pushd tests
@@ -40,5 +40,5 @@ popd
 
 %files
 %doc 00* README.lsof_*
-%{_sbindir}/%{name}
-%{_mandir}/man*/*
+/usr/bin/lsof
+/usr/share/man/man*/*

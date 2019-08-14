@@ -1,0 +1,4 @@
+pushd tests
+make test
+make opt
+popd

@@ -1,0 +1,4 @@
+mkdir -p %{buildroot}/usr/bin
+mkdir -p %{buildroot}/usr/share/man/man8
+install -p -m 0755 lsof %{buildroot}/usr/bin
+install -p -m 0644 Lsof.8 %{buildroot}/usr/share/man/man8

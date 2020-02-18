@@ -4,7 +4,7 @@
 #
 Name     : lsof
 Version  : 4.93.2
-Release  : 18
+Release  : 19
 URL      : https://github.com/lsof-org/lsof/archive/4.93.2.tar.gz
 Source0  : https://github.com/lsof-org/lsof/archive/4.93.2.tar.gz
 Summary  : A utility which lists open files on a Linux/UNIX system

@@ -1,0 +1,44 @@
+From d290aaa952e24150cf96bb73a517567480b15e4d Mon Sep 17 00:00:00 2001
+From: Masatake YAMATO <yamato@redhat.com>
+Date: Fri, 10 May 2019 03:39:27 +0900
+Subject: [PATCH] test cases: include <sys/sysmaros.h> to compile tests/LTlib.c
+ on newer GNU/Linux distributions
+
+"major" is defined in sys/sysmacros.h of glibc.
+sys/types.h included sys/sysmacros.h.
+However, newer glibc shipped as part of Fedora29 removed the directive
+for including sys/sysmacros.h from sys/types.h. As the result, we cannot
+compile tests/LTlib.c on Feodra29 because of no major definition.
+
+As instructed in sys/types.h, we will include sys/sysmacros.h directly
+in this change.
+
+The original issue is reported by @barsnick at #40.
+
+Signed-off-by: Masatake YAMATO <yamato@redhat.com>
+---
+ tests/LTlib.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/tests/LTlib.c b/tests/LTlib.c
+index 1c0d960..c9c482f 100644
+--- a/tests/LTlib.c
++++ b/tests/LTlib.c
+@@ -188,6 +188,14 @@ static char copyright[] =
+ #include <sys/mkdev.h>
+ #endif	/* defined(LT_DIAL_uw) */
+ 
++#if	defined(LT_DIAL_linux)
++/*
++ * Linux-specific items
++ */
++
++#include <sys/sysmacros.h>
++#endif	/* defined(LT_DIAL_linux) */
++
+ 
+ /*
+  * Global variables
+-- 
+2.25.0
+

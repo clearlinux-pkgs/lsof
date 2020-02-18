@@ -4,7 +4,7 @@
 #
 Name     : lsof
 Version  : 4.93.2
-Release  : 19
+Release  : 20
 URL      : https://github.com/lsof-org/lsof/archive/4.93.2.tar.gz
 Source0  : https://github.com/lsof-org/lsof/archive/4.93.2.tar.gz
 Summary  : A utility which lists open files on a Linux/UNIX system
@@ -14,7 +14,8 @@ Requires: lsof-bin = %{version}-%{release}
 Requires: lsof-man = %{version}-%{release}
 BuildRequires : buildreq-configure
 Patch1: 0001-fix-build.patch
-Patch2: test.patch
+Patch2: 0002-test-cases-include-sys-sysmaros.h-to-compile-tests-L.patch
+Patch3: test.patch
 
 %description
 Lsof Binaries
@@ -39,15 +40,17 @@ man components for the lsof package.
 
 %prep
 %setup -q -n lsof-4.93.2
+cd %{_builddir}/lsof-4.93.2
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565825588
+export SOURCE_DATE_EPOCH=1582056076
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -70,7 +73,7 @@ make opt
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1565825588
+export SOURCE_DATE_EPOCH=1582056076
 rm -rf %{buildroot}
 %make_install
 ## install_append content

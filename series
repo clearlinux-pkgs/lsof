@@ -1,2 +1,3 @@
 0001-fix-build.patch
+0002-test-cases-include-sys-sysmaros.h-to-compile-tests-L.patch
 test.patch

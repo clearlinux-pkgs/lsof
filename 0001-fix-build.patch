@@ -1,4 +1,4 @@
-From fd537245864019b9c748712dc224d75a19b88171 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Auke Kok <auke-jan.h.kok@intel.com>
 Date: Wed, 14 Aug 2019 16:12:10 -0700
 Subject: [PATCH] fix build
@@ -15,6 +15,3 @@ index 0000000..e3372e2
 +++ b/configure
 @@ -0,0 +1 @@
 +./Configure -n linux
--- 
-2.22.1
-

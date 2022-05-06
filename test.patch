@@ -1,13 +1,8 @@
---- lsof_4.88-rh/tests/TestDB~	2014-10-13 18:26:59.000000000 -0400
-+++ lsof_4.88-rh/tests/TestDB	2015-06-06 10:26:36.035135955 -0400
-@@ -143,3 +143,4 @@
- LT_BIGF LT_CC LT_DIAL_uw LT_KMEM LT_VERS=70104
- LT_BIGF LT_CC LT_DEV64 LT_DIAL_freebsd LT_KMEM LT_VERS=13000
- LT_BIGF LT_CC LT_DIAL_linux LT_VERS=50009 _FILE_OFFSET_BITS=64
-+LT_BIGF LT_CC LT_DIAL_linux LT_VERS=54019 _FILE_OFFSET_BITS=64
---- lsof_4.88-rh/tests/CkTestDB~	2010-02-12 15:37:05.000000000 -0500
-+++ lsof_4.88-rh/tests/CkTestDB	2015-06-06 10:28:25.611766058 -0400
-@@ -65,7 +65,6 @@
+diff --git a/tests/CkTestDB b/tests/CkTestDB
+index a63ba00..a2c8fd2 100755
+--- a/tests/CkTestDB
++++ b/tests/CkTestDB
+@@ -65,7 +65,6 @@ then
    echo ""
    echo "     $new"
    echo ""
@@ -15,9 +10,7 @@
  fi
  
  # Establish trap and stty handling.
---- lsof_4.88-rh/tests/CkTestDB~	2015-06-06 10:28:25.000000000 -0400
-+++ lsof_4.88-rh/tests/CkTestDB	2015-06-06 10:32:45.438517777 -0400
-@@ -112,24 +112,4 @@
+@@ -117,24 +116,4 @@ test data base file, ./TestDB:
  .CAT_MARK
  echo "    $new" > /dev/tty
  END=0
@@ -37,8 +30,30 @@
 -    echo "Please answer y or n." > /dev/tty
 -  fi
 -done
- 
--# Should never get here!
 -
+-# Should never get here!
+ 
 -echo "$0: unexpected failure!"
 -exit 2
+diff --git a/tests/Makefile b/tests/Makefile
+index 64efe18..54c68e3 100644
+--- a/tests/Makefile
++++ b/tests/Makefile
+@@ -19,7 +19,7 @@ LIBOBJ=	${LTOBJ}
+ 
+ BASTST=	LTbasic
+ STDTST=	LTnlink LTsock LTszoff LTunix
+-OPTTST=	LTbigf LTdnlc LTlock LTnfs
++OPTTST=	LTbigf LTdnlc LTlock
+ 
+ all:	${CKTSTDB} ${BASTST} ${STDTST} FRC
+ 	@./${CKTSTDB}; xv=$$?; \
+diff --git a/tests/TestDB b/tests/TestDB
+index 93ffa08..af2fa47 100644
+--- a/tests/TestDB
++++ b/tests/TestDB
+@@ -143,3 +143,4 @@ LT_BIGF LT_CC LT_DIAL_uw LT_KMEM LT_VERS=70103
+ LT_BIGF LT_CC LT_DIAL_uw LT_KMEM LT_VERS=70104
+ LT_BIGF LT_CC LT_DEV64 LT_DIAL_freebsd LT_KMEM LT_VERS=13000
+ LT_BIGF LT_CC LT_DIAL_linux LT_VERS=50009 _FILE_OFFSET_BITS=64
++LT_BIGF LT_CC LT_DIAL_linux LT_VERS=54019 _FILE_OFFSET_BITS=64

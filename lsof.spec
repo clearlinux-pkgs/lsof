@@ -4,7 +4,7 @@
 #
 Name     : lsof
 Version  : 4.98.0
-Release  : 28
+Release  : 29
 URL      : https://github.com/lsof-org/lsof/archive/4.98.0/lsof-4.98.0.tar.gz
 Source0  : https://github.com/lsof-org/lsof/archive/4.98.0/lsof-4.98.0.tar.gz
 Summary  : A utility which lists open files on a Linux/UNIX system

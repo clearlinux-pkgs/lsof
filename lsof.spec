@@ -12,7 +12,7 @@ URL      : https://github.com/lsof-org/lsof/archive/4.99.3/lsof-4.99.3.tar.gz
 Source0  : https://github.com/lsof-org/lsof/archive/4.99.3/lsof-4.99.3.tar.gz
 Summary  : A utility which lists open files on a Linux/UNIX system
 Group    : Development/Tools
-License  : BSD-4-Clause Spencer-94
+License  : BSD-4-Clause 
 Requires: lsof-bin = %{version}-%{release}
 Requires: lsof-license = %{version}-%{release}
 Requires: lsof-man = %{version}-%{release}
